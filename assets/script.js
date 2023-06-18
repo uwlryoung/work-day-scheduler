@@ -1,5 +1,11 @@
 var timeDisplayEl = $("#currentDay");
+var divEl = $("div");
+var containerEl = $(".container");
+var allTimeBlocks = $(".time-block");
 
+// console.log(divEl);
+
+// var timeExample = $()
 
 
 
@@ -19,16 +25,62 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
+
+  
+  function checkTime(){
+    var times = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
+
+    for (i = 0; i < times.length; i++){
+      var timeRow = $("#hour-" + times[i]);
+
+      if (times[i] > dayjs().format('HH')){
+        console.log(times[i] + "through >");
+        timeRow.removeClass("past");
+        timeRow.addClass("future");
+        timeRow.removeClass("present");
+      } else if (times[i] < dayjs().format('HH')){
+        console.log(times[i] + "through < ");
+        timeRow.addClass("past");
+        timeRow.removeClass("future");
+        timeRow.removeClass("present");
+      } else {
+          console.log(times[i] + "through else");
+          timeRow.removeClass("past");
+          timeRow.removeClass("future");
+          timeRow.addClass("present");
+      }      
+      }
+    }
+
+  checkTime();
+
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
   function displayTime() {
-    var rightNow = dayjs().format('MMM DD, YYYY [at] hh:mm:ss a');
+    var rightNow = dayjs().format('dddd, MMMM DD, YYYY, H:mm:ss a');
     timeDisplayEl.text(rightNow);
   }
 
   displayTime();
   setInterval(displayTime, 1000);
 });
+
+// console.log(dayjs().format('HH'));
+// console.log(typeof dayjs().format('HH'));
+// console.log("");
+
+// console.log(dayjs().subtract(4,'hour').format('HH'));
+// console.log(typeof dayjs().subtract(4,'hour').format('H'));
+
+
+
+// console.log(dayjs().format('H'));
+// console.log(typeof dayjs().format('H'));
+// console.log("");
+
+// console.log(dayjs().subtract(4,'hour').format('H'));
+// console.log(typeof dayjs().subtract(4,'hour').format('H'));
+
