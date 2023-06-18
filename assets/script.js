@@ -28,26 +28,23 @@ $(function () {
 
   
   function checkTime(){
-    var times = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
+    var times = ["09", "10", "11", "12", "13", "14", "15", "16", "17"];
 
     for (i = 0; i < times.length; i++){
       var timeRow = $("#hour-" + times[i]);
 
       if (times[i] > dayjs().format('HH')){
-        console.log(times[i] + "through >");
         timeRow.removeClass("past");
         timeRow.addClass("future");
         timeRow.removeClass("present");
       } else if (times[i] < dayjs().format('HH')){
-        console.log(times[i] + "through < ");
         timeRow.addClass("past");
         timeRow.removeClass("future");
         timeRow.removeClass("present");
       } else {
-          console.log(times[i] + "through else");
-          timeRow.removeClass("past");
-          timeRow.removeClass("future");
-          timeRow.addClass("present");
+        timeRow.removeClass("past");
+        timeRow.removeClass("future");
+        timeRow.addClass("present");
       }      
       }
     }
