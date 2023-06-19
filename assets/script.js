@@ -28,11 +28,11 @@ $(function () {
     for (i = 0; i < times.length; i++){
       var timeRow = $("#hour-" + times[i]);
 
-      if (times[i] > dayjs().subtract(7, "hour").format('HH')){
+      if (times[i] > dayjs().format('HH')){
         timeRow.removeClass("past");
         timeRow.addClass("future");
         timeRow.removeClass("present");
-      } else if (times[i] < dayjs().subtract(7,"hour").format('HH')){
+      } else if (times[i] < dayjs().format('HH')){
         timeRow.addClass("past");
         timeRow.removeClass("future");
         timeRow.removeClass("present");
@@ -55,7 +55,7 @@ $(function () {
   
   /* Function for a clock using dayjs. */
   function displayTime() {
-    var rightNow = dayjs().subtract(7, "hour").format('dddd, MMMM DD, YYYY, H:mm:ss a');
+    var rightNow = dayjs().format('dddd, MMMM DD, YYYY, H:mm:ss a');
     timeDisplayEl.text(rightNow);
   }
 
