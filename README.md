@@ -26,6 +26,8 @@ The Work Day Scheduler follows the current time, and will continuously update so
 To help plan your work schedule.
 
 ## Credits / Used Sources
+Layout/structure was pre-made by Bootcamp Spot
+
 [dayjs](https://day.js.org/) 
 
 [jquery](https://jquery.com/)
